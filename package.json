@@ -1,0 +1,61 @@
+{
+  "name": "deepl-email-bot",
+  "version": "1.0.0",
+  "description": "NodeJS DeepL email bot written in TypeScript",
+  "main": "dist/index.js",
+  "repository": "git@github.com:01alchemist/deepl-email-bot.git",
+  "author": "Nidin Vinayakan <01@01alchemist.com>",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "deepl",
+    "email",
+    "bot"
+  ],
+  "engines": {
+    "node": ">=8"
+  },
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "types",
+    "cli"
+  ],
+  "scripts": {
+    "start": "webpack --watch",
+    "build.dev": "webpack",
+    "build": "NODE_ENV=production webpack",
+    "precommit": "lint-staged",
+    "test": "echo no tests",
+    "prettier": "prettier --write '**/*.{js,json,ts,gql,graphql}'",
+    "lint": "prettier --check '**/*.{js,json,ts,gql,graphql}'"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "dependencies": {
+    "imap": "^0.8.19",
+    "nodemailer": "^6.3.0",
+    "source-map-support": "^0.5.12"
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.13",
+    "@types/minimist": "1.2.0",
+    "@types/node": "12.6.8",
+    "clean-webpack-plugin": "3.0.0",
+    "fs-extra": "8.1.0",
+    "jest": "24.8.0",
+    "jest-cli": "24.8.0",
+    "prettier": "1.17.1",
+    "prettier-webpack-plugin": "1.2.0",
+    "ts-jest": "24.0.2",
+    "ts-loader": "^6.0.4",
+    "typescript": "3.5.1",
+    "webpack": "4.37.0",
+    "webpack-cli": "3.3.6",
+    "webpack-node-externals": "1.7.2"
+  }
+}
