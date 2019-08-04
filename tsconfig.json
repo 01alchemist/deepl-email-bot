@@ -1,13 +1,12 @@
 {
   "include": ["src", "types"],
   "compilerOptions": {
-    "target": "es2016",
-    "module": "esnext",
+    "target": "es5",
+    "module": "commonjs",
     "lib": ["dom", "esnext"],
-    "importHelpers": true,
-    "declaration": true,
+    "importHelpers": false,
+    "declaration": false,
     "sourceMap": true,
-    "rootDir": "./src",
     "strict": true,
     "noImplicitAny": true,
     "strictNullChecks": true,
@@ -20,7 +19,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "moduleResolution": "node",
-    "outDir": "./dist",
+    "outDir": ".build",
+    "rootDir": "./",
     "baseUrl": "./",
     "paths": {
       "*": ["src/*", "node_modules/*"]

@@ -4,24 +4,15 @@ const webpack = require("webpack");
 const nodeExternals = require("webpack-node-externals");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const PrettierPlugin = require("prettier-webpack-plugin");
+const slsw = require("serverless-webpack");
 const pkg = require("./package.json");
 
-const mode =
-  process.env.NODE_ENV === "production" ? "production" : "development";
+const mode = slsw.lib.webpack.isLocal ? "development" : "production";
 const isDevMode = mode === "development";
-const prodEntries = {
-  index: ["./src/index.ts"]
-};
-
 const outDir = "dist";
-const entries = isDevMode
-  ? {
-      ...prodEntries,
-      index: ["webpack/hot/poll?1000", "./src/index.ts"]
-    }
-  : prodEntries;
+const entries = slsw.lib.entries;
 
-fs.removeSync(path.resolve(__dirname, outDir));
+// fs.removeSync(path.resolve(__dirname, outDir));
 
 const buildNum = () => {
   if (process.env.CI) {
@@ -65,7 +56,7 @@ module.exports = {
     alias: {}
   },
   plugins: [
-    ...(isDevMode ? [] : [new CleanWebpackPlugin()]),
+    // ...(isDevMode ? [] : [new CleanWebpackPlugin()]),
     new webpack.DefinePlugin({
       VERSION: JSON.stringify(pkg.version + buildNum())
     }),

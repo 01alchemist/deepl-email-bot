@@ -1,0 +1,80 @@
+tenant: 01alchemist
+app: deepl-email-bot
+service: deepl-email-bot
+
+provider:
+  name: aws
+  region: eu-west-1
+  runtime: nodejs10.x
+  # deploymentBucket: 01-serverless-deployment-bucket-eu-west-1
+
+plugins:
+  - serverless-webpack
+
+custom:
+  webpack:
+    webpackConfig: 'webpack.config.js'
+    includeModules: true
+    packager: 'yarn'
+
+functions:
+  translateEmail:
+    handler: src/functions/translate-email.handler
+    role: deepLBotRole
+    environment:
+      AWS_ACCESS_KEY_ID_prod: ${env:AWS_ACCESS_KEY_ID}
+      AWS_SECRET_ACCESS_KEY_prod: ${env:AWS_SECRET_ACCESS_KEY}
+      AWS_REGION_prod: ${env:AWS_REGION}
+      DEEPL_AUTH_KEY: ${env:DEEPL_AUTH_KEY}
+
+    events:
+      - s3:
+          bucket: deepl-bot-inbox
+          event: s3:ObjectCreated:*
+          rules:
+            - prefix: emails/
+          existing: true
+
+resources:
+  Resources:
+    deepLBotRole:
+      Type: AWS::IAM::Role
+      Properties:
+        Path: /deepl-bot-roles/
+        RoleName: DeepLBotRole
+        AssumeRolePolicyDocument:
+          Version: '2012-10-17'
+          Statement:
+            - Effect: Allow
+              Principal:
+                Service:
+                  - lambda.amazonaws.com
+              Action: sts:AssumeRole
+        Policies:
+          - PolicyName: DeeplBotPolicy
+            PolicyDocument:
+              Version: '2012-10-17'
+              Statement:
+                - Effect: Allow
+                  Action:
+                    - logs:CreateLogGroup
+                    - logs:CreateLogStream
+                    - logs:PutLogEvents
+                  Resource:
+                    - 'Fn::Join':
+                      - ':'
+                      -
+                        - 'arn:aws:logs'
+                        - Ref: 'AWS::Region'
+                        - Ref: 'AWS::AccountId'
+                        - 'log-group:/aws/lambda/*:*:*'
+                        
+                - Effect: Allow
+                  Action:
+                    - ses:SendRawEmail
+                  Resource: "*"
+
+                - Effect: Allow
+                  Action:
+                    - s3:*
+                  Resource: "arn:aws:s3:::deepl-bot-inbox"

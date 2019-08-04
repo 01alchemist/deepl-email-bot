@@ -25,8 +25,10 @@
     "start": "webpack --watch",
     "build.dev": "webpack",
     "build": "NODE_ENV=production webpack",
+    "deploy": "NODE_ENV=production launch sls deploy",
     "precommit": "lint-staged",
-    "test": "echo no tests",
+    "invoke": "launch ts-node ./tests/translate-email.ts",
+    "test": "jest --config=jest.json",
     "prettier": "prettier --write '**/*.{js,json,ts,gql,graphql}'",
     "lint": "prettier --check '**/*.{js,json,ts,gql,graphql}'"
   },
@@ -37,11 +39,17 @@
     ]
   },
   "dependencies": {
+    "aws-sdk": "^2.503.0",
+    "axios": "^0.19.0",
+    "eml-format": "^0.5.0",
+    "envelope": "^2.0.2",
     "imap": "^0.8.19",
     "nodemailer": "^6.3.0",
-    "source-map-support": "^0.5.12"
+    "source-map-support": "^0.5.13"
   },
   "devDependencies": {
+    "@01/launcher": "1.0.9",
+    "@types/aws-sdk": "2.7.0",
     "@types/jest": "24.0.13",
     "@types/minimist": "1.2.0",
     "@types/node": "12.6.8",
@@ -51,9 +59,10 @@
     "jest-cli": "24.8.0",
     "prettier": "1.17.1",
     "prettier-webpack-plugin": "1.2.0",
+    "serverless-webpack": "^5.3.1",
     "ts-jest": "24.0.2",
     "ts-loader": "^6.0.4",
-    "typescript": "3.5.1",
+    "typescript": "^3.5.3",
     "webpack": "4.37.0",
     "webpack-cli": "3.3.6",
     "webpack-node-externals": "1.7.2"
