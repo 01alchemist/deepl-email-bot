@@ -2,7 +2,7 @@ import { handler } from "./translate-email";
 const event1 = require("./__mocks__/s3-event-1.json");
 const event2 = require("./__mocks__/s3-event-2.json");
 
-describe("translate-email test suite", () => {
+xdescribe("translate-email test suite", () => {
   xit("Should return email object", async () => {
     await handler(event1);
   });

@@ -45,7 +45,7 @@ export async function handler(event: any): Promise<any[]> {
   });
 
   const emls: S3Response[] = await Promise.all(promises);
-  const emails = await parseEmails(emls);
+  const emails = parseEmails(emls);
 
   const translatedEmails = await Promise.all(
     emails.map(async (email: Email) => {

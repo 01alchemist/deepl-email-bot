@@ -15,7 +15,7 @@ export async function readEmlFile(eml: Buffer) {
 
 // const parseEml = util.promisify(emlformat.parse);
 
-export async function parseEmlFile(eml: string) {
+export function parseEmlFile(eml: string) {
   try {
     return new Envelope(eml);
   } catch (e) {
@@ -35,46 +35,46 @@ export type Email = {
   attachments: EmailAttachment[];
 };
 
-export async function parseEmails(_emails: any[]): Promise<Email[]> {
-  return Promise.all(
-    _emails.map(async ({ Body }) => {
-      const content = Body.toString();
-      const email = await parseEmlFile(content);
-      const attachments: EmailAttachment[] = [];
-      Object.keys(email).forEach(index => {
-        const item = email[index];
-        if (
-          item.header &&
-          item.header.contentDisposition &&
-          item.header.contentDisposition.mime === "attachment"
-        ) {
-          const { "0": data, header } = item;
-          attachments.push({ header, data });
-        }
-      });
+export function parseEmails(_emails: any[]): Email[] {
+  return _emails.map(({ Body }) => {
+    const content = Body.toString();
+    const email = parseEmlFile(content);
+    console.log(util.inspect(email), { depth: null });
 
-      const body = email["0"];
-      // console.log(email);
-
-      let textBody = "";
-      let htmlBody = "";
-
-      if (email.header.contentType.mime === "multipart/alternative") {
-        textBody = email["0"]["0"];
-        htmlBody = email["1"]["0"];
-      } else if (body.header.contentType.mime === "multipart/alternative") {
-        textBody = body["0"]["0"];
-        htmlBody = body["1"]["0"];
-      } else if (body.header.contentType.mime === "multipart/mixed") {
-        textBody = body["0"]["0"]["0"];
-        htmlBody = body["0"]["1"]["0"];
+    const attachments: EmailAttachment[] = [];
+    Object.keys(email).forEach(index => {
+      const item = email[index];
+      if (
+        item.header &&
+        item.header.contentDisposition &&
+        item.header.contentDisposition.mime === "attachment"
+      ) {
+        const { "0": data, header } = item;
+        attachments.push({ header, data });
       }
-      return <Email>{
-        header: email.header,
-        textBody,
-        htmlBody,
-        attachments
-      };
-    })
-  );
+    });
+
+    const body = email["0"];
+    console.log(email.header);
+
+    let textBody = "";
+    let htmlBody = "";
+
+    if (email.header.contentType.mime === "multipart/alternative") {
+      textBody = email["0"]["0"];
+      htmlBody = email["1"]["0"];
+    } else if (body.header.contentType.mime === "multipart/alternative") {
+      textBody = body["0"]["0"];
+      htmlBody = body["1"]["0"];
+    } else if (body.header.contentType.mime === "multipart/mixed") {
+      textBody = body["0"]["0"]["0"];
+      htmlBody = body["0"]["1"]["0"];
+    }
+    return <Email>{
+      header: email.header,
+      textBody,
+      htmlBody,
+      attachments
+    };
+  });
 }

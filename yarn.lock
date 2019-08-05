@@ -1754,6 +1754,13 @@ envelope@^2.0.2:
     iconv-lite "^0.4.21"
     mime-lib "^0.5.3"
 
+"envelope@ssh://git@github.com:01alchemist/node-envelope.git#v2.0.3":
+  version "2.0.2"
+  resolved "ssh://git@github.com:01alchemist/node-envelope.git#af91fb114ea115e5cea40069f4b617c018e1066d"
+  dependencies:
+    iconv-lite "^0.4.21"
+    mime-lib "^0.5.3"
+
 errno@^0.1.3, errno@~0.1.7:
   version "0.1.7"
   resolved "https://registry.yarnpkg.com/errno/-/errno-0.1.7.tgz#4684d71779ad39af177e3f007996f7c67c852618"
