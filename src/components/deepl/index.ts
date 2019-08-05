@@ -15,7 +15,9 @@ export enum Language {
 const AUTH_KEY = process.env.DEEPL_AUTH_KEY;
 const baseUrl = "https://api.deepl.com/v2";
 const translate = (text: string, lang: string) =>
-  `${baseUrl}/translate?auth_key=${AUTH_KEY}&text=${text}&source_lang=EN&target_lang=${lang}`;
+  `${baseUrl}/translate?auth_key=${AUTH_KEY}&text=${encodeURIComponent(
+    text
+  )}&source_lang=EN&target_lang=${lang}`;
 
 export async function translateDocs(docs: any[], lang: Language) {
   return await Promise.all(docs.map((doc: any) => translateDoc(doc, lang)));
