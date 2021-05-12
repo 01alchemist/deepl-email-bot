@@ -1746,14 +1746,6 @@ enhanced-resolve@4.1.0, enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0:
     memory-fs "^0.4.0"
     tapable "^1.0.0"
 
-envelope@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/envelope/-/envelope-2.0.2.tgz#45ba233f901ea9f55d0f51156ea00984e4f6cbab"
-  integrity sha512-4F5Y+2QPPfkd5+hCwxRxcU9GrYUtVJRywRTQPOYpzUCP8p7Cdc3AqO+Ot3iCPKnUr4OEDzZ5Ns4No5uVaE6T5A==
-  dependencies:
-    iconv-lite "^0.4.21"
-    mime-lib "^0.5.3"
-
 "envelope@ssh://git@github.com:01alchemist/node-envelope.git#v2.0.3":
   version "2.0.2"
   resolved "ssh://git@github.com:01alchemist/node-envelope.git#af91fb114ea115e5cea40069f4b617c018e1066d"
@@ -3712,10 +3704,10 @@ node-pre-gyp@^0.12.0:
     semver "^5.3.0"
     tar "^4"
 
-nodemailer@^6.3.0:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.3.0.tgz#a89b0c62d3937bdcdeecbf55687bd7911b627e12"
-  integrity sha512-TEHBNBPHv7Ie/0o3HXnb7xrPSSQmH1dXwQKRaMKDBGt/ZN54lvDVujP6hKkO/vjkIYL9rK8kHSG11+G42Nhxuw==
+nodemailer@^6.4.16:
+  version "6.4.16"
+  resolved "https://registry.yarnpkg.com/nodemailer/-/nodemailer-6.4.16.tgz#5cb6391b1d79ab7eff32d6f9f48366b5a7117293"
+  integrity sha512-68K0LgZ6hmZ7PVmwL78gzNdjpj5viqBdFqKrTtr9bZbJYj6BRj5W6WGkxXrEnUl3Co3CBXi3CZBUlpV/foGnOQ==
 
 nopt@^4.0.1:
   version "4.0.1"
