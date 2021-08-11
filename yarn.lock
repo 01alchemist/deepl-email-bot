@@ -1746,14 +1746,6 @@ enhanced-resolve@4.1.0, enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0:
     memory-fs "^0.4.0"
     tapable "^1.0.0"
 
-envelope@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/envelope/-/envelope-2.0.2.tgz#45ba233f901ea9f55d0f51156ea00984e4f6cbab"
-  integrity sha512-4F5Y+2QPPfkd5+hCwxRxcU9GrYUtVJRywRTQPOYpzUCP8p7Cdc3AqO+Ot3iCPKnUr4OEDzZ5Ns4No5uVaE6T5A==
-  dependencies:
-    iconv-lite "^0.4.21"
-    mime-lib "^0.5.3"
-
 "envelope@ssh://git@github.com:01alchemist/node-envelope.git#v2.0.3":
   version "2.0.2"
   resolved "ssh://git@github.com:01alchemist/node-envelope.git#af91fb114ea115e5cea40069f4b617c018e1066d"
@@ -4023,9 +4015,9 @@ path-key@^2.0.0, path-key@^2.0.1:
   integrity sha1-QRyttXTFoUDTpLGRDUDYDMn0C0A=
 
 path-parse@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.6.tgz#d62dbb5679405d72c4737ec58600e9ddcf06d24c"
-  integrity sha512-GSmOT2EbHrINBf9SR7CDELwlJ8AENk3Qn7OikK4nFYAu3Ote2+JYNVvkpAEQm3/TLNEJFD/xZJjzyxg3KBWOzw==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
+  integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
 path-type@^3.0.0:
   version "3.0.0"
