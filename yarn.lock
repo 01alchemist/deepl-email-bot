@@ -1746,14 +1746,6 @@ enhanced-resolve@4.1.0, enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0:
     memory-fs "^0.4.0"
     tapable "^1.0.0"
 
-envelope@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/envelope/-/envelope-2.0.2.tgz#45ba233f901ea9f55d0f51156ea00984e4f6cbab"
-  integrity sha512-4F5Y+2QPPfkd5+hCwxRxcU9GrYUtVJRywRTQPOYpzUCP8p7Cdc3AqO+Ot3iCPKnUr4OEDzZ5Ns4No5uVaE6T5A==
-  dependencies:
-    iconv-lite "^0.4.21"
-    mime-lib "^0.5.3"
-
 "envelope@ssh://git@github.com:01alchemist/node-envelope.git#v2.0.3":
   version "2.0.2"
   resolved "ssh://git@github.com:01alchemist/node-envelope.git#af91fb114ea115e5cea40069f4b617c018e1066d"
@@ -4991,9 +4983,9 @@ timers-browserify@^2.0.4:
     setimmediate "^1.0.4"
 
 tmpl@1.0.x:
-  version "1.0.4"
-  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.4.tgz#23640dd7b42d00433911140820e5cf440e521dd1"
-  integrity sha1-I2QN17QtAEM5ERQIIOXPRA5SHdE=
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/tmpl/-/tmpl-1.0.5.tgz#8683e0b902bb9c20c4f726e3c0b69f36518c07cc"
+  integrity sha512-3f0uOEAQwIqGuWW2MVzYg8fV/QNnc/IpuJNG837rLuczAaLVHslWHZQj4IGiEl5Hs3kkbhwL9Ab7Hrsmuj+Smw==
 
 to-arraybuffer@^1.0.0:
   version "1.0.1"
