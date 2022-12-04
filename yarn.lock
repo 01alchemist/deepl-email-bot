@@ -1559,9 +1559,9 @@ decamelize@^1.2.0:
   integrity sha1-9lNNFRSCabIDUue+4m9QH5oZEpA=
 
 decode-uri-component@^0.2.0:
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.0.tgz#eb3913333458775cb84cd1a1fae062106bb87545"
-  integrity sha1-6zkTMzRYd1y4TNGh+uBiEGu4dUU=
+  version "0.2.2"
+  resolved "https://registry.yarnpkg.com/decode-uri-component/-/decode-uri-component-0.2.2.tgz#e69dbe25d37941171dd540e024c444cd5188e1e9"
+  integrity sha512-FqUYQ+8o158GyGTrMFJms9qh3CqTKvAqgqsTnkLI8sKu0028orqBhxNMFkFen0zGyg6epACD32pjVk58ngIErQ==
 
 deep-extend@^0.6.0:
   version "0.6.0"
@@ -1745,14 +1745,6 @@ enhanced-resolve@4.1.0, enhanced-resolve@^4.0.0, enhanced-resolve@^4.1.0:
     graceful-fs "^4.1.2"
     memory-fs "^0.4.0"
     tapable "^1.0.0"
-
-envelope@^2.0.2:
-  version "2.0.2"
-  resolved "https://registry.yarnpkg.com/envelope/-/envelope-2.0.2.tgz#45ba233f901ea9f55d0f51156ea00984e4f6cbab"
-  integrity sha512-4F5Y+2QPPfkd5+hCwxRxcU9GrYUtVJRywRTQPOYpzUCP8p7Cdc3AqO+Ot3iCPKnUr4OEDzZ5Ns4No5uVaE6T5A==
-  dependencies:
-    iconv-lite "^0.4.21"
-    mime-lib "^0.5.3"
 
 "envelope@ssh://git@github.com:01alchemist/node-envelope.git#v2.0.3":
   version "2.0.2"
